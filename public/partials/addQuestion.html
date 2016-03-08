@@ -1,0 +1,41 @@
+<div class="container" ng-app="QuoraClone" ng-controller="questionsController">
+
+  <div class="alert alert-danger" ng-show="error != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{error}}
+  </div>  
+
+  <form class="form-app">
+    <h2 class="form-app-heading">Ask a Question</h2>
+    <label for="inputQuestionTitle" class="sr-only">Email address</label>
+    <input 
+      type="questionTitle" 
+      id="inputQuestionTitle" 
+      class="form-control" 
+      placeholder="Question Title" 
+      required autofocus
+      ng-model="question.question.title"
+    >
+
+    <label for="inputQuestionDesc" class="sr-only">Question Description</label>
+    <input 
+      type="questionDesc" 
+      id="inputQuestionDesc" 
+      class="form-control" 
+      placeholder="Question Description" 
+      ng-model="question.question.description"
+    >
+
+    <label for="inputQuestionTopics" class="sr-only">Topics (Comma Separated)</label>
+    <input 
+      type="questionTopics" 
+      id="inputQuestionTopics" 
+      class="form-control" 
+      placeholder="Topics (Comma Separated)" 
+      ng-model="question.question.topics"
+    >
+    
+    <button id="login" class="btn btn-lg btn-primary btn-block" ng-click = "addQuestion()">Add Question</button>
+
+  </form>
+</div> 

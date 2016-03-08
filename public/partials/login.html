@@ -1,0 +1,33 @@
+<div class="container" ng-app="QuoraClone" ng-controller="sessionsController">
+
+  <div class="alert alert-danger" ng-show="error != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{error}}
+  </div>  
+
+  <form class="form-app">
+    <h2 class="form-app-heading">Please sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input 
+      type="email" 
+      id="inputEmail" 
+      class="form-control" 
+      placeholder="Email address" 
+      required autofocus
+      ng-model="user.user.email"
+    >
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input 
+      type="password" 
+      id="inputPassword" 
+      class="form-control" 
+      placeholder="Password" 
+      required
+      ng-model="user.user.password"
+    >
+    
+    <button id="login" class="btn btn-lg btn-primary btn-block" ng-click = "login()">Sign in</button>
+
+  </form>
+</div> 

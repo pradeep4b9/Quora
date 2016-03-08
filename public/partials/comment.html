@@ -1,0 +1,33 @@
+<div class="container" ng-app="QuoraClone" ng-controller="commentsController" ng-init="init()">
+
+  <div class="alert alert-danger" ng-show="error != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{error}}
+  </div>  
+
+  <div class="alert alert-success" ng-show="success != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{success}}</strong>
+  </div>  
+
+  <form>
+    <div class="form-group">
+      <label for="comment">Your Comment:</label>
+      <textarea class="form-control" rows="5" id="comment" ng-model="comment.comment.body"></textarea>
+    </div>
+    <button id="comment" class="btn btn-lg btn-primary" rows="5" ng-click = "submitComment()">Submit</button>
+  </form>
+
+  <div ng-show="comments.length != 0">
+    <br>
+    <p><strong>{{comments.length}} Comments</strong></p>
+    <div class="well" ng-repeat="comment in comments">
+      <p><strong>{{comment.body}}</strong></p>
+      <p>
+        <strong>Commented By: </strong><a href="" ng-click="showUser(comment.user.id)">{{comment.user.first_name}}</a>
+        <strong> on </strong>{{comment.updated_at | date: 'medium'}}</p>
+      </p>
+    </div>
+  </div>
+
+</div>

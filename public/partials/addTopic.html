@@ -1,0 +1,37 @@
+<div class="container" ng-app="QuoraClone" ng-controller="topicsController">
+
+  <div class="alert alert-danger" ng-show="error != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{error}}
+  </div>  
+
+  <div class="alert alert-success" ng-show="success != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{success}}</strong>
+  </div>    
+
+  <form class="form-app">
+    <h2 class="form-app-heading">Create Topic</h2>
+    <label for="inputTopicTitle" class="sr-only">Title</label>
+    <input 
+      type="topicTitle" 
+      id="inputTopicTitle" 
+      class="form-control" 
+      placeholder="Title" 
+      required autofocus
+      ng-model="topic.topic.title"
+    >
+
+    <label for="inputTopicDesc" class="sr-only">Description</label>
+    <input 
+      type="topicDesc" 
+      id="inputTopicDesc" 
+      class="form-control" 
+      placeholder="Description" 
+      ng-model="topic.topic.description"
+    >
+
+    <button id="topic" class="btn btn-lg btn-primary btn-block" ng-click = "createTopic()">Create Topic</button>
+
+  </form>
+</div> 

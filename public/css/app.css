@@ -1,0 +1,108 @@
+.form-app {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-app .form-app-heading {
+  margin-bottom: 10px;
+}
+.form-app .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-app .form-control:focus {
+  z-index: 2;
+}
+.form-app input[type="name"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-app input[type="email"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-app input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-app input[type="questionTitle"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-app input[type="questionDesc"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-app input[type="questionTopics"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-app input[type="topicTitle"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-app input[type="topicDesc"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.vcard-stat {
+    float: left;
+    font-size: 11px;
+    padding: 20px;
+    text-transform: capitalize;
+}
+.vcard-stat-count {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+}
+
+.vcard-follow {
+  float: center;
+  padding-left: 75px;
+}
+
+.text-muted {
+    color: #767676;
+}
+
+.vcard-names {
+    line-height: 1;
+}
+
+.avatar {
+  margin-top: -1px;
+  margin-right: 2px;
+  border-radius: 2px;
+}
+
+.avatar-upload {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+.right-button {
+  float: left;
+}
+
+

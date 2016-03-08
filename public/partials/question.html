@@ -1,0 +1,56 @@
+<div class="container" ng-app="QuoraClone" ng-controller="questionsController" ng-init="init('show')">
+
+  <div class="alert alert-danger" ng-show="error != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{error}}
+  </div>  
+
+  <div class="alert alert-success" ng-show="success != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{success}}</strong>
+  </div>  
+
+
+  <div class="row">
+    <div class="col-sm-9 vcard" >
+      <div class="well">
+        <h3>{{question.title}}</h3>
+        <p ng-show="question.description != null"><strong>Description: </strong>{{question.description}}</p>
+        <p><strong>Asked By: </strong><a href="" ng-click="showUser(question.user.id)">{{question.user.first_name}}</a> <strong> on </strong>{{question.updated_at | date: 'medium'}}</p>
+      </div>
+    </div>
+    <div class="col-sm-2 vcard">
+      <div class="" ng-show="question.topics.length != 0">
+        <p><strong>Topics: </strong></p>
+        <div ng-repeat="topic in question.topics">
+          <a href="" data-dismiss="modal" ng-click="redirectToTopic(topic.id)">{{topic.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="answer">Your Answer:</label>
+      <textarea class="form-control" rows="5" id="comment" ng-model="answer.answer.body"></textarea>
+    </div>
+    <button id="answer" class="btn btn-lg btn-primary" rows="5" ng-click = "submitAnswer()">Submit</button>
+  </form>
+
+  <div ng-show="question.answers.length != 0">
+    <br>
+    <p><strong>{{question.answers.length}} Answers</strong></p>
+    <div class="well" ng-repeat="answer in question.answers">
+      <p><strong>{{answer.body}}</strong></p>
+      <p>
+        <strong>Answered By: </strong><a href="" ng-click="showUser(answer.user.id)">{{answer.user.first_name}}</a>
+        <strong> on </strong>{{answer.updated_at | date: 'medium'}}</p>
+      </p>
+      <p>
+        <strong><a href="" ng-click="showComments(answer.id)">{{answer.comments.length}} Comments</a></strong>
+      </p>
+    </div>
+  </div>
+
+  </div>
+</div>

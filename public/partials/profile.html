@@ -1,0 +1,155 @@
+<div class="container" ng-app="QuoraClone" ng-controller="usersController" ng-init="init()">
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="followers" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Followers</h4>
+        </div>
+        <div class="modal-body" ng-repeat="user in followers">
+          <h3><a href="" data-dismiss="modal" ng-click="showUser(user.id)">{{user.first_name}}</a></h3>
+        </div>
+        <div class="modal-body">
+          <p ng-show="followers.length == 0">No Followers</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="followings" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Following Users</h4>
+        </div>
+        <div class="modal-body" ng-repeat="user in followings">
+          <h3><a href="" data-dismiss="modal" ng-click="showUser(user.id)">{{user.first_name}}</a></h3>
+        </div>
+        <div class="modal-body">
+          <p ng-show="followings.length == 0">No Following Users</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="topics" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Following Topics</h4>
+        </div>
+        <div class="modal-body" ng-repeat="topic in topics">
+          <h3><a href="" data-dismiss="modal" ng-click="redirectToTopic(topic.id)">{{topic.title}}</a></h3>
+        </div>
+        <div class="modal-body">
+          <p ng-show="topics.length == 0">No Following Topics</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+
+  <div class="alert alert-danger" ng-show="error != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{error}}
+  </div>  
+
+  <div class="alert alert-success" ng-show="success1 != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{success1}}</strong>
+  </div>  
+
+
+  <div class="alert alert-success" ng-show="success2 != null">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{success2}}</strong>
+  </div>  
+
+  <div class="row">
+    <div class="col-sm-4 vcard" >
+
+      <a href="/#/profile"  class="avatar">
+        <img alt="" class="avatar" height="230" src={{avatarUrl}} width="230">
+      </a>
+
+      <h1 class="vcard-names">
+        <div class="vcard-fullname" itemprop="name">{{firstName + " " + lastName}}</div>
+      </h1>
+
+      <div class="vcard-stats">
+        <a class="vcard-stat" href="" data-toggle="modal" data-target="#followers">
+          <strong class="vcard-stat-count d-block">{{followers.length}}</strong><br>
+          <span class="text-muted">Followers</span>
+        </a>
+        
+        <a class="vcard-stat" href="" data-toggle="modal" data-target="#followings">
+          <strong class="vcard-stat-count d-block">{{followings.length}}</strong><br>
+          <span class="text-muted">Following</span>
+        </a>
+
+        <a class="vcard-stat" href="" data-toggle="modal" data-target="#topics">
+          <strong class="vcard-stat-count d-block">{{topics.length}}</strong><br>
+          <span class="text-muted">Topics</span>
+        </a>
+      </div>
+
+      <div class="col-sm-4 vcard-follow" ng-show="curUserId != userId">
+        <div ng-show="!follow">
+          <button type="button" ng-click="followUser(userId)" class="btn btn-default">Follow</button>
+        </div>
+
+        <div ng-show="follow">
+          <button type="button" ng-click="unFollowUser(userId)" class="btn btn-default">Unfollow</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-6 vcard">
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="" ng-click="click = !click" data-target="#questions">Questions</a></li>
+        <li><a data-toggle="tab" href="" ng-click="click = !click" data-target="#answers">Answers</a></li>
+      </ul>
+
+
+      <div class="tab-content" id="questions" ng-show="click">
+        <h3 ng-show="success1 == null">Questions asked by {{firstName}}</h3>
+        <div id="questions" class="well tab-pane fade in active" ng-repeat="question in questions">
+          <h3><a href="" ng-click="redirectToQuestion(question.id)">{{question.title}}</a></h3>
+          <p ng-show="question.description != null"><strong>Description: </strong>{{question.description}}</p>
+          <p><strong>Answers: </strong>{{question.answers.length}}</p>
+          <p><strong>Topics: </strong>{{question.topics.length}}
+          <p ng-show="question.votes != null"><strong>Votes: </strong>{{question.votes}}   
+          <p><strong>Asked On: </strong>{{question.updated_at | date: 'medium'}}</p>
+        </div>
+      </div>
+
+      <div class="tab-content" id="answers" ng-show="!click">
+        <h3 ng-show="success2 == null">Questions answered by {{firstName}}</h3>
+        <div id="answers" class="well tab-pane fade in active" ng-repeat="answer in answers">
+          <h3><a href="" ng-click="redirectToQuestion(answer.question.id)">{{answer.question.title}}</a></h3>
+          <p><strong>Answer: </strong>{{answer.body}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
