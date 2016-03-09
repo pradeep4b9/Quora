@@ -1,5 +1,6 @@
 #Quora Clone - Minimal Version of Quora in Rails
 
+[Demo](http://52.33.191.220/)
 
 ## FEATURES:
 
