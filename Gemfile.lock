@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
     byebug (8.2.2)
+    choice (0.2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -86,6 +87,11 @@ GEM
       activesupport (= 3.2.18)
       bundler (~> 1.0)
       railties (= 3.2.18)
+    rails-erd (1.4.6)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     railties (3.2.18)
       actionpack (= 3.2.18)
       activesupport (= 3.2.18)
@@ -96,6 +102,7 @@ GEM
     rake (10.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    ruby-graphviz (1.2.2)
     sass (3.4.21)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -134,6 +141,7 @@ DEPENDENCIES
   mysql
   paperclip (~> 4.1)
   rails (= 3.2.18)
+  rails-erd
   sass-rails (~> 3.2.3)
   strong_parameters
   uglifier (>= 1.0.3)
