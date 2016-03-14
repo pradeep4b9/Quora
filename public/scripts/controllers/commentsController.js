@@ -20,6 +20,7 @@ angular
       })
       .success(function(data) {
         $scope.comments = data;
+        console.log(data);
       })
       .error(function(data) {
         $scope.error = "Comment Fetch Error!"
