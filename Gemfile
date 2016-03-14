@@ -18,3 +18,4 @@ gem 'paperclip', '~> 4.1'
 gem 'strong_parameters'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'rails-erd'
+gem 'brakeman', :require => false

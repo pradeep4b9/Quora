@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :email, :password, :followers, :followed_users, :avatar
+  attr_accessible :first_name, :last_name, :email, 
+                  :password, :followers, :followed_users, :avatar
   has_secure_password
 
   before_save :create_remember_token

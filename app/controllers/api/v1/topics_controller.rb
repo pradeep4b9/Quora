@@ -12,26 +12,19 @@ class Api::V1::TopicsController < ApplicationController
     end
   end
 
-  def destroy
-    @topic = Topic.find(params[:id])
-    @topic.try(:destroy)
-    render json: {}
-  end
-
   def index
     @topics = Topic.all
     render :index
   end
 
-  def users_topics
-    @topics = User.find_by_id(params["topic"]["user_id"]).topics
-    render :index
-  end
-
-
   def show
     @topic = Topic.find(params["topic"]["id"])
     render :show
+  end
+
+  def users_topics
+    @topics = User.find_by_id(params["topic"]["user_id"]).topics
+    render :index
   end
 
   def topic_name_index

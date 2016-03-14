@@ -13,12 +13,6 @@ class Api::V1::CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.try(:destroy)
-    render json: {}
-  end
-
   def index
     @comments = Answer.find_by_id(comment_params[:answer_id]).comments
     render :index

@@ -48,12 +48,6 @@ class Api::V1::QuestionsController < ApplicationController
     end
   end
 
-  def destroy
-    @question = Question.find(params[:id])
-    @question.try(:destroy)
-    render json: {}
-  end
-
   def feed
     @questions = []
     @topics = User.find_by_id(question_params[:user_id]).topics

@@ -8,14 +8,9 @@ class Api::V1::QuestionTopicsController < ApplicationController
     if @question_topic.save
       render json: @question_topic
     else
-      render json: @question_topic.errors.full_messages, status: :unprocessable_entity
+      render json: @question_topic.errors.full_messages, 
+             status: :unprocessable_entity
     end
-  end
-
-  def destroy
-    @question_topic = QuestionTopic.find(params[:id])
-    @question_topic.try(:destroy)
-    render json: {}
   end
 
   def index
@@ -24,7 +19,8 @@ class Api::V1::QuestionTopicsController < ApplicationController
   end
 
   def show
-    @question_topic = QuestionTopic.includes(:question, :topic).find(params[:id])
+    @question_topic = QuestionTopic.includes(:question, :topic).
+                      find(params[:id])
     render :show
   end
 

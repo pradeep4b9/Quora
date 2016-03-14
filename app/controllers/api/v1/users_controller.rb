@@ -41,17 +41,10 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new
   end
   
-  def edit
-  end
-
-  def update
-  end
-  
-  def destroy
-  end
-
   def user_params
-    params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation, :avatar)
+    params.require(:user).permit(:id, :first_name, :last_name, 
+                                 :email, :password, :password_confirmation, 
+                                 :avatar)
   end
       
 end
