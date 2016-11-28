@@ -9,6 +9,7 @@ class Api::V1::UserTopicsController < ApplicationController
                   )
     if @user_topic.save
       render json: @user_topic
+      
     else
       render json: @user_topic.errors.full_messages, 
              status: :unprocessable_entity

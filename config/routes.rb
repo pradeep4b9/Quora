@@ -4,7 +4,7 @@ QuoraClone::Application.routes.draw do
     namespace :v1 do
 
       get 'sessions' => 'sessions#user_signed_in'
-
+      resource :sessions, only: [:new, :create, :destroy]
       post 'show_user' => 'users#show'
 
       post 'answer_user' => 'answers#answer_user'
@@ -24,7 +24,7 @@ QuoraClone::Application.routes.draw do
       resources :topics
       resources :question_topics
       resources :user_topics
-      resources :sessions
+      # resources :sessions
       resources :relationships
 
       resources :users do
