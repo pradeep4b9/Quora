@@ -25,6 +25,7 @@ class Api::V1::SessionsController < ApplicationController
     end
   end
   
+  
   def destroy
     if !current_user.nil?
       sign_out
@@ -44,7 +45,6 @@ class Api::V1::SessionsController < ApplicationController
                   :data => { } 
                 }
     end
-
   end
 
   def user_signed_in

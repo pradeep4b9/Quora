@@ -5,7 +5,6 @@ class UserTopic < ActiveRecord::Base
   belongs_to :topic
 
   validates :user, :topic, presence: true
-
   validates_uniqueness_of :user_id, :scope => :topic_id 
 
 end

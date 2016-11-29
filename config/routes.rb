@@ -24,7 +24,7 @@ QuoraClone::Application.routes.draw do
       resources :topics
       resources :question_topics
       resources :user_topics
-      # resources :sessions
+      #resources :sessions
       resources :relationships
 
       resources :users do

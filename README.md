@@ -1,15 +1,13 @@
-#Quora Clone - Minimal Version of Quora in Rails
+#Quora - Minimal Version of Quora in Rails
 
-[Demo](http://52.33.191.220/)
+Built with Ruby on rails + Angular Js + Mysql
 
-## FEATURES:
+##Designed and developed by Pradeep kumar kv
+
+##FEATURES:
 
   * Models: Question, Answer, Relationship, Comments, User, Topics
   * API design
   * AngularJS
 
-  ## Domain Model
-
-  ![](/erd.png)
-
-_Made with love for Quoara_ :heart:
+  
